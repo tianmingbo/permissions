@@ -7,4 +7,4 @@ def init_session(user_obj, request):
         permission = i.peimissions.all().values('url')
         for j in permission:
             permission_list.append(j)
-    return permission_list
+    request.session['permission_list'] = permission_list

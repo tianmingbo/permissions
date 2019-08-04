@@ -19,7 +19,7 @@ from myapp import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^users/', views.users),
+    url(r'^users/$', views.users),
     url(r'^users/add', views.add_user),
     url(r'^users/delete/(\d+)', views.delete_user),
     url(r'^roles/', views.roles),

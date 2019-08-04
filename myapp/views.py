@@ -1,23 +1,23 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse,redirect
 from rbac import models
 from rbac.service.permissions import *
 
 
 # Create your views here.
 def users(request):
-    pass
+    return HttpResponse('users')
 
 
 def add_user(request):
-    pass
+    return HttpResponse('add_user')
 
 
 def delete_user(request):
-    pass
+    return HttpResponse('delete_user')
 
 
 def roles(request):
-    pass
+    return HttpResponse('roles')
 
 
 def login(request):
@@ -31,7 +31,8 @@ def login(request):
             request.session['user_id'] = user_obj.pk
             # print(request.session['user_id'])
             # 查询当前登陆用户的权限，写入session
-            print(init_session(user_obj, request))
+            init_session(user_obj, request)
+            return redirect('/users/')
         else:
             return render(request, 'login.html')
     return render(request, 'login.html')
